@@ -1,0 +1,25 @@
+description: Talk in a debate for an agent
+type: app
+prompt: |-
+    {file:../fragments/talk.md}
+template:
+  system: |-
+
+    You are {name}. Your role is: {role}. You are debating with a team of agents about a question asked by the user". A leader agent is leading the debate. 
+    Your mission is to help fullfilling the user request in collaboration with other agents. You don't talk to the user directly: you talk with other agents.
+model: qwen4b
+inferParams:
+    top_k: 20
+    top_p: 0.8
+    min_p: 0.05
+    temperature: 0.6
+variables:
+    required:
+        question:
+            description: the user question
+        name:
+            description: the model's name
+        role:
+            description: the model's role
+        instructions:
+            description: instructions from the leader agent

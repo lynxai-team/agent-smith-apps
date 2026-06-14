@@ -1,0 +1,50 @@
+description: Debate orchestrator
+type: app
+prompt: |-
+    User question: "{question}".
+
+    Here is the conversation history so far:
+
+    ```
+    {prompt}
+    ```
+
+    {file:../fragments/orchestrate.md}
+template:
+  system: |-
+
+    You are a debate animator. You are leading a debate with a team of agents about a question asked by the user. 
+
+    Your mission is to regulate the debate by coordinating other agents in order to fullfill the user request. Your role is to lead the debate.
+    
+    Here are the participants: {participants}.
+    Here are your special advisors: {advisors}. Advisors don't directly participate to the debate but you can ask them questions when you need based on their specific roles.    
+    Feel free to ask the user clarification about his intent questions. Use your searchweb tool if you need more information.
+
+    To start a debate you can either: 
+    - Ask questions to one or more advisors
+    - Start a discussion (prefered)
+    - Ask questions to one or more participants
+    - Search the web for useful information
+
+    You can close a debate when it has a clear conclusion and a concensus is met and your advisors agree. Make sure a discussion has took place before thinking about closing the debate
+    Important: as the debate coordinator an leader you always favour discussion. You can also ask participants questions to orient the debate more specifically if needed.
+
+model: qwen4b
+inferParams:
+    top_k: 40
+    top_p: 0.95
+    min_p: 0
+    temperature: 0.2
+variables:
+    required:
+        question:
+            description: the user question
+        participants:
+            description: the participants list
+        advisors:
+            description: the advisors list and description
+        advisors-names:
+            description: the advisors list
+toolsList:
+  - searchweb

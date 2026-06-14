@@ -1,0 +1,44 @@
+{
+  "name": "@agent-smith/app-debate",
+  "version": "0.0.1",
+  "description": "Debate app for Agent Smith ui",
+  "repository": "https://github.com/synw/agent-smith-apps",
+  "scripts": {
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@vueuse/core": "^14.3.0",
+    "markstream-vue": "^1.0.1",
+    "mermaid": "^11.15.0",
+    "modprompt": "^0.14.3",
+    "vue": "3.5.38"
+  },
+  "devDependencies": {
+    "@agent-smith/types": "^0.0.6",
+    "@agent-smith/wscli": "^0.0.7",
+    "@types/node": "^25.9.3",
+    "@types/web-bluetooth": "^0.0.21",
+    "@vitejs/plugin-vue": "6.0.7",
+    "@vue/compiler-sfc": "3.5.38",
+    "restmix": "^0.6.1",
+    "rollup-plugin-typescript2": "^0.37.0",
+    "sass-embedded": "^1.100.0",
+    "tslib": "2.8.1",
+    "typescript": "^6.0.3",
+    "vite": "8.0.16",
+    "vue-tsc": "^3.3.5"
+  },
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/app-debate.cjs",
+  "module": "./dist/app-debate.js",
+  "types": "./dist/main.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/app-debate.js",
+      "require": "./dist/app-debate.cjs"
+    }
+  }
+}
